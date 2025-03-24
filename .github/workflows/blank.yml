@@ -27,7 +27,7 @@ jobs:
     - name: Add custom user
       run: |
         $username = "Admin"
-        $password = ConvertTo-SecureString "${{ secrets.RDP_PASSWORD }}" -AsPlainText -Force
+        $password = ConvertTo-SecureString "${{ secrets.MASTER_PASSWORD }}" -AsPlainText -Force
         New-LocalUser -Name $username -Password $password -FullName $username -Description "Custom user for RDP access"
         Add-LocalGroupMember -Group "Administrators" -Member $username  # Optionally add user to Administrators group
 
